@@ -142,7 +142,7 @@ export function styleSheetFile(root, value) {
   if (/<\/style/i.test(text)) {
     throw projectError(`story.md build-style css ${css} must not contain </style`);
   }
-  text = text.replace(/^﻿/, "").replace(/\r\n?/g, "\n");
+  text = text.replace(/^\uFEFF/, "").replace(/\r\n?/g, "\n");
   return { filePath, text: text === "" || text.endsWith("\n") ? text : `${text}\n` };
 }
 

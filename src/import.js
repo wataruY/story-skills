@@ -722,7 +722,7 @@ function splitChapters(documents, warnings, rules, bylines) {
 // marks shown as \uXXXX escapes, so a terminal cannot read them as commands
 // and the text cannot read as another.
 function shownText(text) {
-  return text.replace(/[\u0000-\u001f\u007f-\u009f؜‎‏‪-‮⁦-⁩]/gu, (character) => `\\u${character.charCodeAt(0).toString(16).padStart(4, "0")}`);
+  return text.replace(/[\u0000-\u001f\u007f-\u009f\u061C\u200E\u200F\u202A-\u202E\u2066-\u2069]/gu, (character) => `\\u${character.charCodeAt(0).toString(16).padStart(4, "0")}`);
 }
 
 // The frontmatter keys a Story Skills chapter file has. `title` and `author`

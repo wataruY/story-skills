@@ -738,7 +738,7 @@ function referenceEntries(dir, self, depth = 0, collected = []) {
 // ## Chapter Text section. `prose` stands in for the file's text when the
 // caller has already read it.
 function textDocument(file, name, prose = null) {
-  let text = prose ?? readTextFile(file).replace(/^﻿/, "");
+  let text = prose ?? readTextFile(file).replace(/^\uFEFF/, "");
   text = text.replace(/\r\n?/g, "\n");
   if (prose === null && /\.(?:md|markdown)$/i.test(file)) {
     text = chapterProse(withoutLeadingFrontmatter(text));

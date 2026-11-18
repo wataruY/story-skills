@@ -508,7 +508,7 @@ function enclosingStoryProject(root) {
     const storyPath = path.join(current, "story.md");
     let isProject = false;
     try {
-      isProject = fs.statSync(storyPath).isFile() && /^﻿?---\r?\n/.test(readTextFile(storyPath).slice(0, 8));
+      isProject = fs.statSync(storyPath).isFile() && /^\uFEFF?---\r?\n/.test(readTextFile(storyPath).slice(0, 8));
     } catch {
       isProject = false;
     }

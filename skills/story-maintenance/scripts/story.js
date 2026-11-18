@@ -389,7 +389,7 @@ function summarizeJournal(root, journal) {
       changes.push({ action: kind, path: path.relative(base, file).split(path.sep).join("/") || "." });
     }
   }
-  const key = (change) => change.action === "rmdir" ? `${change.path}/￿` : change.path;
+  const key = (change) => change.action === "rmdir" ? `${change.path}/\uFFFF` : change.path;
   return changes.sort((a, b) => key(a) < key(b) ? -1 : key(a) > key(b) ? 1 : 0);
 }
 function writeWholeFile(filePath, contents, options) {
@@ -2814,7 +2814,7 @@ var base_default = {
   cased: true,
   script: null,
   countUnit: "words",
-  sentenceEnd: [".", "!", "?", "…", "。", "！", "？", "؟", "۔", "।", "॥", "።"],
+  sentenceEnd: [".", "!", "?", "…", "。", "！", "？", "\u061F", "۔", "।", "॥", "።"],
   quotes: [
     ["“", "”"],
     ["‘", "’"],
@@ -5204,20 +5204,20 @@ var fa_default = {
     "all-rights-reserved": "همهٔ حقوق محفوظ است.",
     "published-by": "ناشر: {publisher}",
     "scene-break": "تغییر صحنه",
-    footnotes: "پانوشت‌ها",
+    footnotes: "پانوشت\u200Cها",
     "author-note": "یادداشت نویسنده",
     "cover-alt": "جلد کتاب {title}",
     "start-of-content": "آغاز محتوا",
-    "accessibility-summary": "کتابی فقط متنی، با فهرست مطالب پیمایش‌پذیر، عنوانی برای هر فصل و یک ترتیب خواندن منطقی واحد.",
-    "accessibility-summary-cover": "کتابی متنی با تصویر جلد توصیف‌شده، فهرست مطالب پیمایش‌پذیر، عنوانی برای هر فصل و یک ترتیب خواندن منطقی واحد.",
-    "accessibility-summary-images": "کتابی متنی با تصاویر توصیف‌شده، فهرست مطالب پیمایش‌پذیر، عنوانی برای هر فصل و یک ترتیب خواندن منطقی واحد.",
+    "accessibility-summary": "کتابی فقط متنی، با فهرست مطالب پیمایش\u200Cپذیر، عنوانی برای هر فصل و یک ترتیب خواندن منطقی واحد.",
+    "accessibility-summary-cover": "کتابی متنی با تصویر جلد توصیف\u200Cشده، فهرست مطالب پیمایش\u200Cپذیر، عنوانی برای هر فصل و یک ترتیب خواندن منطقی واحد.",
+    "accessibility-summary-images": "کتابی متنی با تصاویر توصیف\u200Cشده، فهرست مطالب پیمایش\u200Cپذیر، عنوانی برای هر فصل و یک ترتیب خواندن منطقی واحد.",
     "review-title": "{title}: نسخهٔ بازبینی",
     "review-intro": "نسخهٔ بازبینی.",
     "review-intro-build": "نسخهٔ بازبینی، ویرایش {build}.",
     "review-labels": "هر بند برچسبی مانند {label} دارد (فصل 3، بند 12).",
     "review-quote": "در هر یادداشت، برچسب و چند واژهٔ نخست بند را بیاورید تا نویسنده حتی پس از تغییر متن، جای دقیق را پیدا کند.",
     "review-quote-build": "در هر یادداشت، برچسب، ویرایش و چند واژهٔ نخست بند را بیاورید تا نویسنده حتی پس از تغییر متن، جای دقیق را پیدا کند.",
-    "review-note-link": "پیوند «یادداشت» کنار هر برچسب، یادداشتی باز می‌کند که این موارد از پیش در آن پر شده‌اند.",
+    "review-note-link": "پیوند «یادداشت» کنار هر برچسب، یادداشتی باز می\u200Cکند که این موارد از پیش در آن پر شده\u200Cاند.",
     note: "یادداشت",
     "note-title": "نوشتن یادداشت برای {label}",
     "anchor-title": "پیوند به {label}",
@@ -5239,52 +5239,52 @@ var fa_default = {
     "codex-story-bible": "مرجع داستان",
     "codex-index-title": "{title}: مرجع داستان",
     "codex-timeline": "خط زمانی",
-    "codex-threads": "رشته‌ها و سرنخ‌ها",
+    "codex-threads": "رشته\u200Cها و سرنخ\u200Cها",
     "codex-progress": "پیشرفت",
-    "codex-characters": "شخصیت‌ها",
-    "codex-locations": "مکان‌ها",
-    "codex-factions": "جناح‌ها",
+    "codex-characters": "شخصیت\u200Cها",
+    "codex-locations": "مکان\u200Cها",
+    "codex-factions": "جناح\u200Cها",
     "codex-artifacts": "اشیا",
-    "codex-systems": "سامانه‌ها",
-    "codex-arcs": "قوس‌ها",
+    "codex-systems": "سامانه\u200Cها",
+    "codex-arcs": "قوس\u200Cها",
     "codex-character": "شخصیت",
     "codex-location": "مکان",
     "codex-faction": "جناح",
     "codex-artifact": "شیء",
     "codex-system": "سامانه",
     "codex-arc": "قوس",
-    "codex-chapters": "فصل‌ها",
-    "codex-scenes": "صحنه‌ها",
-    "codex-questions": "پرسش‌ها",
-    "codex-promises": "وعده‌ها",
-    "codex-clues": "سرنخ‌ها",
-    "codex-note-spoilers": "مرجع داستان با لو دادن رویدادها: یادداشت‌های موجودیت‌ها، وضعیت‌ها، مرگ‌ها، دانسته‌ها، سرنخ‌ها و اینکه هر رشته چگونه گره‌گشایی می‌شود.",
-    "codex-note-safe": "مرجع داستان بدون لو دادن رویدادها: چه کسانی و چه چیزهایی در داستان هست و کجا ظاهر می‌شوند. یادداشت‌ها، وضعیت‌ها، مرگ‌ها، دانسته‌ها، سرنخ‌ها و گره‌گشایی‌ها کنار گذاشته شده‌اند؛ برای مرجع کامل با {flag} بسازید.",
+    "codex-chapters": "فصل\u200Cها",
+    "codex-scenes": "صحنه\u200Cها",
+    "codex-questions": "پرسش\u200Cها",
+    "codex-promises": "وعده\u200Cها",
+    "codex-clues": "سرنخ\u200Cها",
+    "codex-note-spoilers": "مرجع داستان با لو دادن رویدادها: یادداشت\u200Cهای موجودیت\u200Cها، وضعیت\u200Cها، مرگ\u200Cها، دانسته\u200Cها، سرنخ\u200Cها و اینکه هر رشته چگونه گره\u200Cگشایی می\u200Cشود.",
+    "codex-note-safe": "مرجع داستان بدون لو دادن رویدادها: چه کسانی و چه چیزهایی در داستان هست و کجا ظاهر می\u200Cشوند. یادداشت\u200Cها، وضعیت\u200Cها، مرگ\u200Cها، دانسته\u200Cها، سرنخ\u200Cها و گره\u200Cگشایی\u200Cها کنار گذاشته شده\u200Cاند؛ برای مرجع کامل با {flag} بسازید.",
     "codex-no-entities": "هنوز شخصیت، مکان یا موجودیت دیگری نیست.",
     "codex-relationships": "روابط",
     "codex-appears-in": "حضور در",
     "codex-advanced-in": "پیشرفت در",
-    "codex-linked-from": "ارجاع‌شده در",
+    "codex-linked-from": "ارجاع\u200Cشده در",
     "codex-changes": "تغییرات",
-    "codex-change": "از {chapter}: {field} به {value} تغییر می‌کند",
-    "codex-knows": "دانسته‌ها",
+    "codex-change": "از {chapter}: {field} به {value} تغییر می\u200Cکند",
+    "codex-knows": "دانسته\u200Cها",
     "codex-known-from-start": "از آغاز",
-    "codex-learned-in": "دانسته‌شده در {chapter}",
-    "codex-notes": "یادداشت‌ها",
+    "codex-learned-in": "دانسته\u200Cشده در {chapter}",
+    "codex-notes": "یادداشت\u200Cها",
     "codex-role": "نقش",
-    "codex-aliases": "نام‌های دیگر",
+    "codex-aliases": "نام\u200Cهای دیگر",
     "codex-status": "وضعیت",
     "codex-dies-in": "مرگ در",
     "codex-revived-in": "بازگشت به زندگی در",
     "codex-type": "گونه",
     "codex-region": "منطقه",
     "codex-setting": "فضا",
-    "codex-notable-characters": "شخصیت‌های برجسته",
+    "codex-notable-characters": "شخصیت\u200Cهای برجسته",
     "codex-routes": "مسیرها",
     "codex-hours": "{hours} ساعت",
     "codex-members": "اعضا",
     "codex-owner": "مالک",
-    "codex-themes": "درون‌مایه‌ها",
+    "codex-themes": "درون\u200Cمایه\u200Cها",
     "codex-pronunciation": "تلفظ",
     "codex-date": "تاریخ",
     "codex-time": "زمان",
@@ -5293,49 +5293,49 @@ var fa_default = {
     "codex-pov": "زاویهٔ دید",
     "codex-told-late": "روایت خارج از ترتیب",
     "codex-flashback": "بازگشت به گذشته: {date}",
-    "codex-no-dates": "هنوز صحنه یا فصل تاریخ‌داری نیست. برای جای دادن صحنه‌ها در زمان داستان، به آن‌ها {field} بدهید.",
-    "codex-timeline-note": "رویدادهای داستان به ترتیب زمان داستان، همان‌طور که {command} فهرست می‌کند.",
-    "codex-undated": "بی‌تاریخ",
+    "codex-no-dates": "هنوز صحنه یا فصل تاریخ\u200Cداری نیست. برای جای دادن صحنه\u200Cها در زمان داستان، به آن\u200Cها {field} بدهید.",
+    "codex-timeline-note": "رویدادهای داستان به ترتیب زمان داستان، همان\u200Cطور که {command} فهرست می\u200Cکند.",
+    "codex-undated": "بی\u200Cتاریخ",
     "codex-point-of-view": "زاویهٔ دید",
-    "codex-words": "واژه‌ها",
+    "codex-words": "واژه\u200Cها",
     "codex-share": "سهم",
     "codex-unspecified": "نامشخص",
     "codex-presence": "حضور",
     "codex-first": "نخستین",
     "codex-last": "آخرین",
-    "codex-longest-gap": "طولانی‌ترین غیبت",
+    "codex-longest-gap": "طولانی\u200Cترین غیبت",
     "codex-death": "مرگ",
     "codex-dies-in-chapter": "فصل {n}",
-    "codex-threads-note": "فقط پرسش‌های باز و وعده‌ها، بدون پاسخ یا تحقق آن‌ها. سرنخ‌ها و رشته‌های گره‌گشایی‌شده به {flag} نیاز دارند.",
+    "codex-threads-note": "فقط پرسش\u200Cهای باز و وعده\u200Cها، بدون پاسخ یا تحقق آن\u200Cها. سرنخ\u200Cها و رشته\u200Cهای گره\u200Cگشایی\u200Cشده به {flag} نیاز دارند.",
     "codex-none": "موردی نیست.",
     "codex-question": "پرسش",
     "codex-raised-in": "طرح در",
-    "codex-resolved-in": "گره‌گشایی در",
+    "codex-resolved-in": "گره\u200Cگشایی در",
     "codex-promise": "وعده",
     "codex-planted-in": "کاشته در",
     "codex-paid-off-in": "تحقق در",
     "codex-clue": "سرنخ",
-    "codex-clues-note": "P فصلی را نشان می‌دهد که سرنخ در آن کاشته می‌شود، R فصلی که آن را آشکار می‌کند، و x هر دو را، همان‌طور که {command} چاپ می‌کند.",
-    "codex-clue-totals-one": "{planted} از {total} کاشته‌شده، {revealed} آشکارشده، {herrings} سرنخ گمراه‌کننده.",
-    "codex-clue-totals": "{planted} از {total} کاشته‌شده، {revealed} آشکارشده، {herrings} سرنخ گمراه‌کننده.",
-    "codex-red-herring": "سرنخ گمراه‌کننده",
+    "codex-clues-note": "P فصلی را نشان می\u200Cدهد که سرنخ در آن کاشته می\u200Cشود، R فصلی که آن را آشکار می\u200Cکند، و x هر دو را، همان\u200Cطور که {command} چاپ می\u200Cکند.",
+    "codex-clue-totals-one": "{planted} از {total} کاشته\u200Cشده، {revealed} آشکارشده، {herrings} سرنخ گمراه\u200Cکننده.",
+    "codex-clue-totals": "{planted} از {total} کاشته\u200Cشده، {revealed} آشکارشده، {herrings} سرنخ گمراه\u200Cکننده.",
+    "codex-red-herring": "سرنخ گمراه\u200Cکننده",
     "codex-significance-delayed": "اهمیت دیرهنگام",
-    "codex-total-words": "مجموع واژه‌ها",
-    "codex-total-characters": "مجموع نویسه‌ها",
-    "codex-target-words": "واژه‌های هدف",
-    "codex-target-characters": "نویسه‌های هدف",
-    "codex-done": "انجام‌شده",
-    "codex-remaining": "باقی‌مانده",
+    "codex-total-words": "مجموع واژه\u200Cها",
+    "codex-total-characters": "مجموع نویسه\u200Cها",
+    "codex-target-words": "واژه\u200Cهای هدف",
+    "codex-target-characters": "نویسه\u200Cهای هدف",
+    "codex-done": "انجام\u200Cشده",
+    "codex-remaining": "باقی\u200Cمانده",
     "codex-deadline": "مهلت",
     "codex-target": "هدف",
-    "codex-character-count": "نویسه‌ها",
+    "codex-character-count": "نویسه\u200Cها",
     "codex-plot-grid": "جدول پیرنگ",
-    "codex-grid-note": "قوس‌ها به تفکیک فصل، همان‌طور که {command} چاپ می‌کند: x یعنی آن فصل یا یکی از صحنه‌هایش قوس را پیش می‌برد.",
+    "codex-grid-note": "قوس\u200Cها به تفکیک فصل، همان\u200Cطور که {command} چاپ می\u200Cکند: x یعنی آن فصل یا یکی از صحنه\u200Cهایش قوس را پیش می\u200Cبرد.",
     "codex-unknown": "نامعلوم",
     "codex-beat": "نقطهٔ پیرنگ",
     "codex-hook": "قلاب",
     "codex-outcomes": "پیامدها",
-    "codex-session-log": "گزارش جلسه‌های نوشتن"
+    "codex-session-log": "گزارش جلسه\u200Cهای نوشتن"
   }
 };
 
@@ -12245,7 +12245,7 @@ function formatNames(report) {
 
 // src/punctuation.js
 var SENTENCE_OPENERS = "¿¡";
-var QUESTION_MARKS = "?？؟";
+var QUESTION_MARKS = "?？\u061F";
 var EXCLAMATION_MARKS = "!！";
 var QUOTATION_DASH = "―";
 var FULL_WIDTH = /^[　-〿＀-￯]$/u;
@@ -15750,7 +15750,7 @@ function styleSheetFile(root, value) {
   if (/<\/style/i.test(text)) {
     throw projectError(`story.md build-style css ${css} must not contain </style`);
   }
-  text = text.replace(/^﻿/, "").replace(/\r\n?/g, `
+  text = text.replace(/^\uFEFF/, "").replace(/\r\n?/g, `
 `);
   return { filePath, text: text === "" || text.endsWith(`
 `) ? text : `${text}
@@ -23646,10 +23646,10 @@ var HTML_ENTITIES = new Map([
     ensp: " ",
     emsp: " ",
     thinsp: " ",
-    zwnj: "‌",
-    zwj: "‍",
-    lrm: "‎",
-    rlm: "‏",
+    zwnj: "\u200C",
+    zwj: "\u200D",
+    lrm: "\u200E",
+    rlm: "\u200F",
     ndash: "–",
     mdash: "—",
     lsquo: "‘",
@@ -29867,7 +29867,7 @@ function enclosingStoryProject(root) {
     const storyPath = path30.join(current, "story.md");
     let isProject = false;
     try {
-      isProject = fs16.statSync(storyPath).isFile() && /^﻿?---\r?\n/.test(readTextFile(storyPath).slice(0, 8));
+      isProject = fs16.statSync(storyPath).isFile() && /^\uFEFF?---\r?\n/.test(readTextFile(storyPath).slice(0, 8));
     } catch {
       isProject = false;
     }
@@ -34869,7 +34869,7 @@ function referenceEntries(dir, self, depth = 0, collected = []) {
   return collected;
 }
 function textDocument(file, name, prose = null) {
-  let text = prose ?? readTextFile(file).replace(/^﻿/, "");
+  let text = prose ?? readTextFile(file).replace(/^\uFEFF/, "");
   text = text.replace(/\r\n?/g, `
 `);
   if (prose === null && /\.(?:md|markdown)$/i.test(file)) {
@@ -35694,7 +35694,7 @@ function splitChapters(documents, warnings, rules, bylines) {
   return chapters.filter((chapter) => chapter.prose !== "" || chapter.bylined);
 }
 function shownText2(text) {
-  return text.replace(/[\u0000-\u001f\u007f-\u009f؜‎‏‪-‮⁦-⁩]/gu, (character) => `\\u${character.charCodeAt(0).toString(16).padStart(4, "0")}`);
+  return text.replace(/[\u0000-\u001f\u007f-\u009f\u061C\u200E\u200F\u202A-\u202E\u2066-\u2069]/gu, (character) => `\\u${character.charCodeAt(0).toString(16).padStart(4, "0")}`);
 }
 var CHAPTER_KEYS = ["number", "numbered", "pov", "locations", "characters", "arcs-advanced", "status"];
 function storySkillsChapter(text) {
